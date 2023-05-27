@@ -66,7 +66,19 @@ const LinkedList = (head = null) => {
     }
   };
 
-  return { head, append, prepend, size, tail, at, pop }
+  const contains = (value) => {
+    let node = head;
+    while(node) {
+      if (node.data === value) {
+        return true;
+      } else {
+        node = node.next;
+      }
+    }
+    return false;
+  }
+
+  return { head, append, prepend, size, tail, at, pop, contains }
 }
 
 let node1 = Node(1);
