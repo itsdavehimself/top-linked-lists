@@ -14,5 +14,10 @@ const LinkedList = (head = null) => {
     node.next = Node(value);
   };
 
-  return { head, append }
+  const prepend = function(value) {
+    this.head = Node(value, head);
+    head = this.head;
+  }
+
+  return { head, append, prepend }
 }
