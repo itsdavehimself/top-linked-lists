@@ -120,5 +120,27 @@ const LinkedList = (head = null) => {
     }
   };
 
-  return { head, append, prepend, size, tail, at, pop, contains, find, toString, insertAt }
-}
+  const removeAt = function(index) {
+    let count = 0;
+    let node = head;
+    let previousNode;
+    let nextNode;
+    while(node) {
+      if (count === index - 1) {
+        previousNode = node;
+        node = node.next;
+        count += 1;
+      }
+      if (count === index) {
+        nextNode = node.next;
+        node = node.next;
+        count += 1;
+      } else {
+        node = node.next;
+      }
+    }
+    previousNode.next = nextNode;
+  };
+
+  return { head, append, prepend, size, tail, at, pop, contains, find, toString, insertAt, removeAt }
+};
