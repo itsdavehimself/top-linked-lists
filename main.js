@@ -92,7 +92,21 @@ const LinkedList = (head = null) => {
     return null;
   };
 
-  return { head, append, prepend, size, tail, at, pop, contains, find }
+  const toString = () => {
+    let node = head;
+    let listString = '';
+    while(node) {
+      let data = node.data.toString();
+      listString = listString.concat(`( ${data} ) -> `);
+      node = node.next
+      if (node === null) {
+        listString = listString.concat('null');
+      }
+    }
+    return listString;
+  };
+
+  return { head, append, prepend, size, tail, at, pop, contains, find, toString }
 }
 
 let node1 = Node(1);
