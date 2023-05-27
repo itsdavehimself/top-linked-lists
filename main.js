@@ -17,7 +17,7 @@ const LinkedList = (head = null) => {
   const prepend = function(value) {
     this.head = Node(value, head);
     head = this.head;
-  }
+  };
 
   const size = () => {
     let node = head;
@@ -37,7 +37,7 @@ const LinkedList = (head = null) => {
       }
     }
     return node;
-  }
+  };
 
   const at = (index) => {
     let count = 0;
@@ -52,7 +52,21 @@ const LinkedList = (head = null) => {
     }
   };
 
-  return { head, append, prepend, size, tail, at }
+  const pop = () => {
+    let secondLastIndex = size() - 2;
+    let count = 0;
+    let node = head;
+    while(node) {
+      if (count === secondLastIndex) {
+        return node.next = null;
+      } else {
+        node = node.next;
+        count += 1;
+      }
+    }
+  };
+
+  return { head, append, prepend, size, tail, at, pop }
 }
 
 let node1 = Node(1);
