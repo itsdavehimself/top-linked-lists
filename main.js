@@ -106,10 +106,19 @@ const LinkedList = (head = null) => {
     return listString;
   };
 
-  return { head, append, prepend, size, tail, at, pop, contains, find, toString }
-}
+  const insertAt = function(value, index) {
+    let count = 0;
+    let node = head;
+    while(node) {
+      if (count === index - 1) {
+        node.next = Node(value, node.next);
+        return;
+      } else {
+        node = node.next;
+        count += 1;
+      }
+    }
+  };
 
-let node1 = Node(1);
-let node2 = Node(2);
-node1.next = node2;
-const list = LinkedList(node1);
+  return { head, append, prepend, size, tail, at, pop, contains, find, toString, insertAt }
+}
