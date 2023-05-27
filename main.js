@@ -19,5 +19,16 @@ const LinkedList = (head = null) => {
     head = this.head;
   }
 
-  return { head, append, prepend }
+  const size = () => {
+    let node = head;
+    console.log(head);
+    let count = 0;
+    while(node) {
+      count += 1;
+      node = node.next;
+    }
+    return count;
+  };
+
+  return { head, append, prepend, size }
 }
