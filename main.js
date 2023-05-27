@@ -3,5 +3,16 @@ const Node = (data = null, next = null) => {
 }
 
 const LinkedList = (head = null) => {
-  return { head }
+
+  const append = (value) => {
+    let node = head;
+    if(node) {
+      while(node.next) {
+        node = node.next
+      }
+    }
+    node.next = Node(value);
+  };
+
+  return { head, append }
 }
