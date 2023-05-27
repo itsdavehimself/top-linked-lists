@@ -21,7 +21,6 @@ const LinkedList = (head = null) => {
 
   const size = () => {
     let node = head;
-    console.log(head);
     let count = 0;
     while(node) {
       count += 1;
@@ -30,5 +29,20 @@ const LinkedList = (head = null) => {
     return count;
   };
 
-  return { head, append, prepend, size }
+  const tail = () => {
+    let node = head;
+    if(node) {
+      while(node.next) {
+        node = node.next
+      }
+    }
+    return node;
+  }
+
+  return { head, append, prepend, size, tail}
 }
+
+let node1 = Node(1);
+let node2 = Node(2);
+node1.next = node2;
+const list = LinkedList(node1);
