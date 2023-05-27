@@ -39,7 +39,20 @@ const LinkedList = (head = null) => {
     return node;
   }
 
-  return { head, append, prepend, size, tail}
+  const at = (index) => {
+    let count = 0;
+    let node = head;
+    while(node) {
+      if (count === index) {
+        return node;
+      } else {
+        node = node.next;
+        count += 1;
+      }
+    }
+  };
+
+  return { head, append, prepend, size, tail, at }
 }
 
 let node1 = Node(1);
