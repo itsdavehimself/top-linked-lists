@@ -76,9 +76,23 @@ const LinkedList = (head = null) => {
       }
     }
     return false;
-  }
+  };
 
-  return { head, append, prepend, size, tail, at, pop, contains }
+  const find = (value) => {
+    let node = head;
+    let index = 0;
+    while(node) {
+      if (node.data === value) {
+        return index;
+      } else {
+        index += 1;
+        node = node.next;
+      }
+    }
+    return null;
+  };
+
+  return { head, append, prepend, size, tail, at, pop, contains, find }
 }
 
 let node1 = Node(1);
